@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">productpagetabs_form.productpagetabs_form_data_source</item>
+            <item name="deps" xsi:type="string">productpagetabs_form.productpagetabs_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Product Page Tabs</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <dataScope>data</dataScope>
+        <namespace>productpagetabs_form</namespace>
+        <buttons>
+            <button name="back">
+                <url path="*/*/"/>
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
+            <button name="delete" class="MageSuite\ProductPageTabs\Block\Adminhtml\Tab\Edit\DeleteButton"/>
+            <button name="reset" class="MageSuite\ProductPageTabs\Block\Adminhtml\Tab\Edit\ResetButton"/>
+            <button name="save" class="MageSuite\ProductPageTabs\Block\Adminhtml\Tab\Edit\SaveButton"/>
+            <button name="save_and_continue" class="MageSuite\ProductPageTabs\Block\Adminhtml\Tab\Edit\SaveAndContinueButton"/>
+        </buttons>
+    </settings>
+    <dataSource name="productpagetabs_form_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider class="MageSuite\ProductPageTabs\Ui\DataProvider\TabDataProvider" name="productpagetabs_form_data_source">
+            <settings>
+                <requestFieldName>tab_id</requestFieldName>
+                <primaryFieldName>tab_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <collapsible>true</collapsible>
+            <opened>true</opened>
+            <label translate="true">General Information</label>
+        </settings>
+        <field name="tab_id" formElement="input" sortOrder="20">
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>tab_id</dataScope>
+            </settings>
+        </field>
+        <field name="name" formElement="input" sortOrder="30">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Name</label>
+                <visible>true</visible>
+                <dataScope>name</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field name="attribute_id" formElement="select" sortOrder="40">
+            <settings>
+                <dataType>text</dataType>
+                <label>Link with Attribute</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="MageSuite\ProductPageTabs\Model\Source\Product\Attribute"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="sort_order" formElement="input" sortOrder="50">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Sort Order</label>
+                <visible>true</visible>
+                <dataScope>sort_order</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="labels" sortOrder="20">
+        <settings>
+            <collapsible>true</collapsible>
+            <opened>true</opened>
+            <label translate="true">Labels</label>
+        </settings>
+        <container name="store_view_labels" sortOrder="40">
+            <htmlContent name="html_content">
+                <block name="store_view_labels" class="MageSuite\ProductPageTabs\Block\Adminhtml\Tab\Edit\Labels"/>
+            </htmlContent>
+        </container>
+    </fieldset>
+</form>

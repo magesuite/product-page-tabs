@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="MageSuite_ProductPageTabs::tab_menu"
+            title="Product Page Tabs"
+            module="MageSuite_ProductPageTabs"
+            sortOrder="100"
+            parent="Magento_Catalog::inventory"
+            action="productpagetabs/tab/index"
+            resource="MageSuite_ProductPageTabs::tab"/>
+    </menu>
+</config>

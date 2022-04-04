@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MageSuite\ProductPageTabs\Api\Data\TabInterface"
+                type="MageSuite\ProductPageTabs\Model\Tab" />
+
+    <preference for="MageSuite\ProductPageTabs\Api\Data\TabSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="MageSuite\ProductPageTabs\Api\TabRepositoryInterface"
+                type="MageSuite\ProductPageTabs\Model\TabRepository" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="productpagetabs_listing_data_source" xsi:type="string">MageSuite\ProductPageTabs\Model\ResourceModel\Tab\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="MageSuite\ProductPageTabs\Model\ResourceModel\Tab\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">product_page_tab</argument>
+            <argument name="resourceModel" xsi:type="string">MageSuite\ProductPageTabs\Model\ResourceModel\Tab</argument>
+        </arguments>
+    </virtualType>
+</config>
