@@ -7,6 +7,7 @@
         </item>
         <item name="label" xsi:type="string" translate="true">Product Page Tabs</item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="cssclass" xsi:type="string">cs-csfeature__logo</item>
     </argument>
     <settings>
         <dataScope>data</dataScope>
