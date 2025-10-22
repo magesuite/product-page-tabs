@@ -69,6 +69,7 @@ class Tabs extends \Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Abstra
                         'data' => [
                             'config' => [
                                 'label' => __('Product Tabs'),
+                                'additionalClasses' => 'cs-csfeature__logo',
                                 'dataScope' => self::DATA_SCOPE_PRODUCT,
                                 'collapsible' => true,
                                 'componentType' => \Magento\Ui\Component\Form\Fieldset::NAME,
